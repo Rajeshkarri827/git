@@ -10,19 +10,31 @@
 
                 <!-- MASTER PAGE -->
                 <masterPages>
-                    <Page id="_IDGenPage1" title="Orders">
+                    <Page id="_IDGenPage" title="Orders">
 
-                        <List id="orderList"
-                              items="{/Orders}"
-                              itemPress=".onItemPress"
-                              mode="SingleSelectMaster">
+                        <content>
 
-                            <StandardListItem id="_IDGenStandardListItem"
-                                title="Order {OrderID}"
-                                description="{CustomerName}"
-                                type="Active" />
+                            <!-- 🔍 Search Field -->
+                            <SearchField
+                                id="searchField"
+                                width="100%"
+                                liveChange=".onSearch"
+                                placeholder="Search by Order ID or Customer Name" />
 
-                        </List>
+                            <!-- Orders List -->
+                            <List id="orderList"
+                                  items="{/Orders}"
+                                  itemPress=".onItemPress"
+                                  mode="SingleSelectMaster">
+
+                                <StandardListItem id="_IDGenStandardListItem"
+                                    title="Order {OrderID}"
+                                    description="{CustomerName}"
+                                    type="Active" />
+
+                            </List>
+
+                        </content>
 
                     </Page>
                 </masterPages>
@@ -32,15 +44,17 @@
                 <detailPages>
                     <Page id="detailPage" title="Order Details">
 
-                        <VBox id="_IDGenVBox" class="sapUiSmallMargin">
+                        <content>
+                            <VBox id="_IDGenVBox" class="sapUiSmallMargin">
 
-                            <Title id="_IDGenTitle" text="Order ID: {OrderID}" level="H2" />
-                            <Text id="_IDGenText" text="Customer: {CustomerName}" />
-                            <Text id="_IDGenText1" text="Category: {Category}" />
-                            <Text id="_IDGenText2" text="Status: {Status}" />
-                            <Text id="_IDGenText3" text="Price: {Price}" />
+                                <Title id="_IDGenTitle1" text="Order ID: {OrderID}" level="H2" />
+                                <Text id="_IDGenText" text="Customer: {CustomerName}" />
+                                <Text id="_IDGenText1" text="Category: {Category}" />
+                                <Text id="_IDGenText2" text="Status: {Status}" />
+                                <Text id="_IDGenText3" text="Price: {Price}" />
 
-                        </VBox>
+                            </VBox>
+                        </content>
 
                     </Page>
                 </detailPages>
