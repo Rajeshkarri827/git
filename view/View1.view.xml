@@ -1,6 +1,53 @@
-<mvc:View controllerName="naruto.github.controller.View1"
+<mvc:View
+    controllerName="naruto.github.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+
+    <Page id="page" title="Orders App">
+
+        <content>
+            <SplitApp id="SplitApp">
+
+                <!-- MASTER PAGE -->
+                <masterPages>
+                    <Page id="_IDGenPage1" title="Orders">
+
+                        <List id="orderList"
+                              items="{/Orders}"
+                              itemPress=".onItemPress"
+                              mode="SingleSelectMaster">
+
+                            <StandardListItem id="_IDGenStandardListItem"
+                                title="Order {OrderID}"
+                                description="{CustomerName}"
+                                type="Active" />
+
+                        </List>
+
+                    </Page>
+                </masterPages>
+
+
+                <!-- DETAIL PAGE -->
+                <detailPages>
+                    <Page id="detailPage" title="Order Details">
+
+                        <VBox id="_IDGenVBox" class="sapUiSmallMargin">
+
+                            <Title id="_IDGenTitle" text="Order ID: {OrderID}" level="H2" />
+                            <Text id="_IDGenText" text="Customer: {CustomerName}" />
+                            <Text id="_IDGenText1" text="Category: {Category}" />
+                            <Text id="_IDGenText2" text="Status: {Status}" />
+                            <Text id="_IDGenText3" text="Price: {Price}" />
+
+                        </VBox>
+
+                    </Page>
+                </detailPages>
+
+            </SplitApp>
+        </content>
+
     </Page>
+
 </mvc:View>
